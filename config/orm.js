@@ -31,12 +31,11 @@ function objToSql(obj) {
     let value = obj[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(obj, key)) {
-      // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+      // if string with spaces, add quotations
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
         value = `'${value}'`;
       }
-      // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
+      // e.g. {devoured: true} => ["devoured=true"]
       arr.push(`${key}=${value}`);
     }
   }
@@ -47,19 +46,20 @@ function objToSql(obj) {
 
 const orm = {
   //////SELECT ALL /////
-  selectAll: (table) => {
+  selectAll: (table, cb) => {
     const queryString = "SELECT * FROM ??";
-    console.log(queryString);
-    const query = connection.query(queryString, [table], (err, result) => {
+    console.log("I'm in the ORM!", queryString);
+    connection.query(queryString, [table], (err, result) => {
       if (err) {
         throw err;
       }
       // console.log(`Compiled SQL: ${query.sql}`);
-      console.log(result);
+      // console.log(result);
+      cb(result);
     });
   },
-  //////INSERT ONE /////
 
+  //////INSERT ONE /////
   insertOne: (table, cols, vals, cb) => {
     let queryString = `INSERT INTO ${table}`;
 
