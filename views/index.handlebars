@@ -22,9 +22,9 @@
             <br>
             <ul>
                 {{#each burgers}}
-                {{#if devoured}}
+                {{#unless devoured}}
                 {{!-- {{> burgers/burger-block devoured=false}} --}}
-                {{/if}}
+                {{/unless}}
                 {{/each}}
             </ul>
         </div>
