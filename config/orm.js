@@ -47,9 +47,9 @@ function objToSql(obj) {
 const orm = {
   //////SELECT ALL /////
   selectAll: (table, cb) => {
-    const queryString = "SELECT * FROM ??";
+    const queryString = `SELECT * FROM ${table}`;
     console.log("I'm in the ORM!", queryString);
-    connection.query(queryString, [table], (err, result) => {
+    connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
       }
