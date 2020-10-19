@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
     const viewData = {
       burgers: data,
     };
-    console.log(viewData);
+    console.log("router.get view data ------------.", viewData);
     res.render("index", viewData);
   });
 });
@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
   });
 });
 
-router.updateOne("/", (request, response) => {
+router.put("/", (request, response) => {
   const condition = { devoured: request.body.devoured };
 
   console.log("condition", condition);

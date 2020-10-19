@@ -84,7 +84,7 @@ const orm = {
   //////UPDATE ONE /////
 
   // An example of objColVals would be {name: cheeseburger, devoured: true}
-  update: (table, objColVals, condition, cb) => {
+  updateOne: (table, objColVals, condition, cb) => {
     let queryString = `UPDATE ${table}`;
 
     queryString += " SET ";
