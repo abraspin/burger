@@ -101,51 +101,19 @@ const orm = {
       cb(result);
     });
   },
-};
-//
-//
-// Examples below
 
-/*
-  selectWhere: (table, colToSearch, valOfCol) => {
-    const queryString = "SELECT * FROM ?? WHERE ?? = ?";
-    console.log(queryString);
-    const query = connection.query(queryString, [table, colToSearch, valOfCol], (err, result) => {
+  /////DELETE///////
+  deleteOne: (table, condition, cb) => {
+    const queryString = `DELETE FROM ${table} WHERE ${condition}`;
+    connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
       }
-      console.log(`Compiled SQL: ${query.sql}`);
-      console.log("Result(s): ", result);
-    });
-  },
 
-  selectAndOrder: (whatToSelect, table, orderCol) => {
-    const queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
-    console.log(queryString);
-    connection.query(queryString, [whatToSelect, table, orderCol], (err, result) => {
-      if (err) {
-        throw err;
-      }
-      console.log(result);
+      console.log("Burger deleted from database!");
+      cb(result);
     });
-  },
-  findWhoHasMost: (tableOneCol, tableTwoForeignKey, tableOne, tableTwo) => {
-    const queryString =
-      "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
-    console.log(`Unpopulated SQL: ${queryString}`);
-    const query = connection.query(
-      queryString,
-      [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol],
-      (err, result) => {
-        if (err) {
-          throw err;
-        }
-        console.log(`Compiled SQL: ${query.sql}`);
-        console.log("Result(s): ", result);
-      }
-    );
   },
 };
-*/
 
 module.exports = orm;

@@ -8,9 +8,14 @@ $(document).ready(function () {
     event.preventDefault();
 
     //creating an object that has the information to bring to the controller for the new burger entered by the user
+    const burger_name = $("#add-burger-field").val().trim();
+    //stop immediately if nothing is entered
+    if (!burger_name) {
+      return;
+    }
     const newBurger = {
       //grabbing the value from the text input
-      burger_name: $("#add-burger-field").val().trim(),
+      burger_name: burger_name,
       //set devoured = false or 0
       //TODO: Why is this necessary, and it didn't work until I added `default 0` to the schema
       devoured: 0,
@@ -33,7 +38,6 @@ $(document).ready(function () {
   $(".devour-btn").on("click", (event) => {
     event.preventDefault();
     const burgerToDevour = event.target.getAttribute("data-burger-name");
-    console.log("burgerToDevour", burgerToDevour);
     // const burgerCondition = `burger_name = ${burgerToDevour}`
     const devouredObj = { devoured: true };
     // we're saying
@@ -48,6 +52,21 @@ $(document).ready(function () {
     }).then(() => {
       //log to console success message
       console.log("---\nUser updated a burger\n-----");
+      //reload the page to display the new burger in the appropriate card - Ready to Eat/Devoured
+      console.log("--------------I'm about to reload the page--------------");
+      location.reload();
+    });
+  });
+
+  $(".trash-btn").on("click", (event) => {
+    event.preventDefault();
+    const burgerToTrash = event.target.getAttribute("data-burger-name");
+
+    $.ajax("/api/burgers/" + burgerToTrash, {
+      type: "DELETE",
+    }).then(() => {
+      //log to console success message
+      console.log("---\nUser deleted burger", burgerToTrash);
       //reload the page to display the new burger in the appropriate card - Ready to Eat/Devoured
       console.log("--------------I'm about to reload the page--------------");
       location.reload();
