@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
   });
 });
 
-// TODO: should this be something like /api/burgers ?
+//TODO: What's happening here with the url change? how does the button make the url?
 router.post("/api/burgers", (req, res) => {
   burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], (result) => {
     // Send back the ID of the new quote
@@ -28,10 +28,8 @@ router.post("/api/burgers", (req, res) => {
   });
 });
 
-// TODO: should this be something like /api/burgers:id ?
-//TODO: What's happening here with the url change?
-router.put("/api/burgers:id", (request, response) => {
-  const condition = `name = ${req.params.id}`;
+router.put("/api/burgers/:id", (request, response) => {
+  const condition = `burger_name = '${request.params.id}' `;
 
   console.log("condition", condition);
 
