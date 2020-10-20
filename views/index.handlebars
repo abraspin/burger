@@ -28,7 +28,7 @@
                 {{#unless devoured}}
                 {{!-- {{> burgers/burger-block devoured=false}} --}}
                 {{burger_name}}
-                <button class="devour-btn" type="submit">Devour</button>
+                <button class="devour-btn" data-burger-name="{{burger_name}}" type="submit">Devour</button>
                 <br>
                 {{/unless}}
                 {{/each}}
@@ -46,7 +46,6 @@
                 {{#if devoured}}
                 {{!-- {{> burgers/burger-block devoured=false}} --}}
                 {{burger_name}}
-
                 <br>
                 {{/if}}
                 {{/each}}
