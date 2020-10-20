@@ -31,7 +31,7 @@ router.post("/api/burgers", (req, res) => {
 // TODO: should this be something like /api/burgers:id ?
 //TODO: What's happening here with the url change?
 router.put("/api/burgers:id", (request, response) => {
-  const condition = { devoured: request.body.devoured };
+  const condition = `name = ${req.params.id}`;
 
   console.log("condition", condition);
 
