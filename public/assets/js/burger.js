@@ -1,10 +1,6 @@
 $(document).ready(function () {
   console.log("----------------This is the JS page----------------");
 
-  $(".devour-btn").on("click", function (event) {
-    ingredientSearch(event);
-  });
-
   //creating an on submit event for the create form that adds burgers
   $(".create-form").on("submit", (event) => {
     console.log("--------------I entered the create form click event--------------");
@@ -28,6 +24,30 @@ $(document).ready(function () {
     }).then(() => {
       //log to console success message
       console.log("User added a new burger");
+      //reload the page to display the new burger in the appropriate card - Ready to Eat/Devoured
+      console.log("--------------I'm about to reload the page--------------");
+      location.reload();
+    });
+  });
+
+  $(".devour-btn").on("click", (event) => {
+    event.preventDefault();
+    const burgerToDevour = event.target.getAttribute("data-burger-name");
+    console.log("burgerToDevour", burgerToDevour);
+    // const burgerCondition = `burger_name = ${burgerToDevour}`
+    const devouredObj = { devoured: true };
+    // we're saying
+    //  `UPDATE ${table}`; done
+    // " SET ";
+    // objToSql(objColVals); req.params.id
+    // " WHERE ";
+    // condition;
+    $.ajax("/api/burgers/" + burgerToDevour, {
+      type: "PUT",
+      data: devouredObj,
+    }).then(() => {
+      //log to console success message
+      console.log("---\nUser updated a burger\n-----");
       //reload the page to display the new burger in the appropriate card - Ready to Eat/Devoured
       console.log("--------------I'm about to reload the page--------------");
       location.reload();
