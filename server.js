@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
+//TODO: using the next param to try to fix the image issue, but I think it's unnecessary.
 app.use((req, res, next) => {
   //   console.log(req.url);
   next();
