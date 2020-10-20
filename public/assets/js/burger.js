@@ -15,7 +15,9 @@ $(document).ready(function () {
     const newBurger = {
       //grabbing the value from the text input
       burger_name: $("#add-burger-field").val().trim(),
-      devoured: false,
+      //set devoured = false or 0
+      //TODO: Why is this necessary, and it didn't work until I added `default 0` to the schema
+      devoured: 0,
       //TODO:
     };
 
@@ -28,7 +30,7 @@ $(document).ready(function () {
       console.log("User added a new burger");
       //reload the page to display the new burger in the appropriate card - Ready to Eat/Devoured
       console.log("--------------I'm about to reload the page--------------");
-      //   location.reload();
+      location.reload();
     });
   });
 });
