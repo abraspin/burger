@@ -1,35 +1,32 @@
 <header>
     <div class="container">
         <div class="row">
-            <img class="mx-auto" id="burger-image" src="assets/img/burger.png" alt="burger-image">
+            <img class="mx-auto" style="background-color: transparent; height:10rem" id="burger-image"
+                src="assets/img/burger.png" alt="burger-image">
 
 
 
 
         </div>
-        <div class="row">
-            <h1 class="mx-auto ">Eat Da Burger!</h1>
+        <div class="row  my-1">
+            <h1 class="display-2 mx-auto font-weight-bold">Eat Da Burger!</h1>
         </div>
     </div>
 </header>
-
 <hr>
 <div class="container">
     <div class="row ">
 
         <!-- <div id="burgers-to-devour" class="col-md-5 border"> -->
-        <div id="burgers-to-devour" class="col-md-6 border">
+        <div id="burgers-to-devour" class="col-md-6 p-1">
 
-            <h2 class="text-center">Burgers to be Devoured!</h2>
-
+            <h2 class="text-center font-italic font-weight-bold">Burgers to be Devoured!</h2>
             <br>
-            <ul>
+            <ul class="list-group" style="list-style: none">
                 {{#each burgers}}
                 {{#unless devoured}}
-                {{!-- {{> burgers/burger-block devoured=false}} --}}
-                {{burger_name}}
-                <button class="devour-btn" data-burger-name="{{burger_name}}" type="submit">Devour</button>
-                <br>
+                {{> burgers/burger-block devoured=false}}
+
                 {{/unless}}
                 {{/each}}
             </ul>
@@ -37,16 +34,14 @@
 
         <!-- <div class="col-md-2 "></div> -->
         <!-- <div id="devoured-burgers" class="col-md-5 border"> -->
-        <div id="devoured-burgers" class="col-md-6 border">
-            <h2 class="text-center">Devoured Burgers!</h2>
+        <div id="devoured-burgers" class="col-md-6 p-1">
+            <h2 class="text-center font-italic font-weight-bold ">Devoured Burgers!</h2>
 
             <br>
-            <ul>
+            <ul class="list-group" style="list-style: none">
                 {{#each burgers}}
                 {{#if devoured}}
-                {{!-- {{> burgers/burger-block devoured=false}} --}}
-                {{burger_name}}
-                <br>
+                {{> burgers/burger-block devoured=true}}
                 {{/if}}
                 {{/each}}
             </ul>
@@ -55,10 +50,10 @@
 
     <br>
 
-    <div class="container">
+    <div class="container border mb-2 bg-secondary text-light font-weight-bold">
         <div class="row">
 
-            <h3 class="mx-auto">Add a Burger</h3>
+            <h2 class="mx-auto display-2">Add a Burger!</h3>
         </div>
         <br>
         <div class="row">
@@ -66,18 +61,12 @@
 
                 <!-- MAY NEED TO UPDATE THESE IDS AND VARS  -->
                 <div class="form-group">
-                    <label for="ca">Burger Name:</label>
-                    <input type="text" id="add-burger-field" name="burger_name">
-                    <button id="add-burger-btn" type="submit">Add da Burger!</button>
+
+                    <input type="text" id="add-burger-field" name="burger_name" placeholder="Burger name">
+                    <button class="btn btn-primary" id="add-burger-btn" type="submit">Add da Burger!</button>
                 </div>
 
-                <!-- <div class="form-group">
-                <label for="devoured">Devoured?</label><br>
-                <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-                <input type="radio" name="devoured" value="0"> To Devour!
-            </div>
 
-            <button type="submit">Eat Da Burger!</button> -->
             </form>
 
         </div>
