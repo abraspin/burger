@@ -6,19 +6,21 @@ const router = express.Router();
 const burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
+
+//GET ALL BURGERS
 router.get("/", (req, res) => {
   console.log("I'm about to try burger.selectAll!");
   burger.selectAll((data) => {
     const viewData = {
       burgers: data,
     };
-    console.log("router.get view data ------------.", viewData);
+    // console.log("router.get view data ------------.", viewData);
     res.render("index", viewData);
   });
 });
 
 // TODO: should this be something like /api/burgers ?
-router.post("/", (req, res) => {
+router.post("/api/burgers", (req, res) => {
   burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], (result) => {
     // Send back the ID of the new quote
     //TODO: what's this?
@@ -27,7 +29,8 @@ router.post("/", (req, res) => {
 });
 
 // TODO: should this be something like /api/burgers:id ?
-router.put("/", (request, response) => {
+//TODO: What's happening here with the url change?
+router.put("/api/burgers:id", (request, response) => {
   const condition = { devoured: request.body.devoured };
 
   console.log("condition", condition);

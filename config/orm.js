@@ -48,7 +48,7 @@ const orm = {
   //////SELECT ALL /////
   selectAll: (table, cb) => {
     const queryString = `SELECT * FROM ${table}`;
-    console.log("I'm in the ORM!", queryString);
+
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
@@ -70,7 +70,7 @@ const orm = {
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
 
-    console.log(queryString);
+    console.log("Insert One query string:", queryString);
 
     connection.query(queryString, vals, (err, result) => {
       if (err) {
@@ -92,7 +92,7 @@ const orm = {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString);
+    console.log("update one query string:", queryString);
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;

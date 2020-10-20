@@ -1,7 +1,10 @@
 <header>
     <div class="container">
         <div class="row">
-            <img class="mx-auto" id="burger-image" src="./public/assets/img/burger.png" alt="burger-image">
+            <img class="mx-auto" id="burger-image" src="assets/img/burger.png" alt="burger-image">
+
+
+
 
         </div>
         <div class="row">
@@ -24,6 +27,9 @@
                 {{#each burgers}}
                 {{#unless devoured}}
                 {{!-- {{> burgers/burger-block devoured=false}} --}}
+                {{burger_name}}
+                <button class="devour-btn" type="submit">Devour</button>
+                <br>
                 {{/unless}}
                 {{/each}}
             </ul>
@@ -39,6 +45,9 @@
                 {{#each burgers}}
                 {{#if devoured}}
                 {{!-- {{> burgers/burger-block devoured=false}} --}}
+                {{burger_name}}
+
+                <br>
                 {{/if}}
                 {{/each}}
             </ul>
@@ -59,7 +68,7 @@
                 <!-- MAY NEED TO UPDATE THESE IDS AND VARS  -->
                 <div class="form-group">
                     <label for="ca">Burger Name:</label>
-                    <input type="text" id="ca" name="burger_name">
+                    <input type="text" id="add-burger-field" name="burger_name">
                     <button id="add-burger-btn" type="submit">Add da Burger!</button>
                 </div>
 
