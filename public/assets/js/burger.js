@@ -18,9 +18,6 @@ $(document).ready(function () {
       //grabbing the value from the text input
       burger_name: burger_name,
       //set devoured = false or 0
-      //TODO: Why is this necessary, and it didn't work until I added `default 0` to the schema
-      devoured: 0,
-      //TODO:
     };
 
     //using ajax to pass the information from HTML to the controller

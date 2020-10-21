@@ -1,18 +1,18 @@
 <li class="list-group-item mx-auto my-1 px-3 py-2 bg-primary rounded border border-info text-light container ">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-6">
 
-            <span class=" " style="font-size: 1.5rem; margin: auto;  "> {{burger_name}}</span>
+            <span class=" text-wrap "> {{burger_name}}</span>
         </div>
-        <div class="col-md-4 d-flex justify-content-end">
+
+        <div class="col-md-4 col-sm-6 d-flex justify-content-end">
 
             {{#if devoured}}
             {{else}}
-            <button class="devour-btn btn btn-secondary btn-sm mx-2 " data-burger-id="{{id}}"
-                type="submit">Devour!</button>
+            <button class="devour-btn btn btn-secondary btn-sm  " data-burger-id="{{id}}" type="submit">Devour!</button>
             {{/if}}
-            <button class="trash-btn btn btn-sm btn-danger mx-2  " data-burger-name="{{burger_name}}" type="submit"><i
-                    class='fas fa-trash fa-lg ' data-burger-id="{{id}}" style='size:36px'></i>
+            <button class="trash-btn btn btn-sm btn-danger   " data-burger-name="{{burger_name}}" type="submit"><i
+                    class='fas fa-trash fa-lg ' data-burger-id="{{id}}"></i>
             </button>
         </div>
 
