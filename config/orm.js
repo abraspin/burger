@@ -46,7 +46,7 @@ const orm = {
   //////SELECT ALL /////
   selectAll: (table, cb) => {
     const queryString = `SELECT * FROM ${table}`;
-
+    console.log("selectAll query string: ", queryString);
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
@@ -65,6 +65,8 @@ const orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
+
+    console.log("insertOne query string: ", queryString);
 
     connection.query(queryString, vals, (err, result) => {
       if (err) {
@@ -86,6 +88,8 @@ const orm = {
     queryString += " WHERE ";
     queryString += condition;
 
+    console.log("updateOne query string: ", queryString);
+
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
@@ -98,6 +102,9 @@ const orm = {
   /////DELETE///////
   deleteOne: (table, condition, cb) => {
     const queryString = `DELETE FROM ${table} WHERE ${condition}`;
+
+    console.log("deleteOne query string: ", queryString);
+
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
