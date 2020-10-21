@@ -29,7 +29,8 @@ router.post("/api/burgers", (req, res) => {
 });
 
 router.put("/api/burgers/:id", (request, response) => {
-  const condition = `burger_name = "${request.params.id}" `;
+  // const condition = `burger_name = "${request.params.id}" `; // => burger_name = " dfabshfhbasrf "
+  const condition = `id = "${request.params.id}" `; // => id = " dfabshfhbasrf "
 
   console.log("condition", condition);
 
@@ -43,7 +44,7 @@ router.put("/api/burgers/:id", (request, response) => {
 });
 
 router.delete("/api/burgers/:id", (request, response) => {
-  const condition = `burger_name = '${request.params.id}' `;
+  const condition = `id = '${request.params.id}' `;
 
   burger.deleteOne(condition, (result) => {
     if (result.affectedRows == 0) {

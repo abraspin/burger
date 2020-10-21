@@ -1,6 +1,7 @@
 $(document).ready(function () {
   console.log("----------------This is the JS page----------------");
 
+  //EVENT TO CREATE A NEW BURGER ITEM
   //creating an on submit event for the create form that adds burgers
   $(".create-form").on("submit", (event) => {
     console.log("--------------I entered the create form click event--------------");
@@ -35,13 +36,14 @@ $(document).ready(function () {
     });
   });
 
+  //EVENT TO DEVOUR A BURGER ITEM
   $(".devour-btn").on("click", (event) => {
     event.preventDefault();
-    const burgerToDevour = event.target.getAttribute("data-burger-name");
+    const burgerToDevour = event.target.getAttribute("data-burger-id");
     // const burgerCondition = `burger_name = ${burgerToDevour}`
     const devouredObj = { devoured: true };
     // we're saying
-    //  `UPDATE ${table}`; done
+    //  `UPDATE ${table}`;
     // " SET ";
     // objToSql(objColVals); req.params.id
     // " WHERE ";
@@ -58,9 +60,10 @@ $(document).ready(function () {
     });
   });
 
+  //EVENT TO DELETE A BURGER ITEM
   $(".trash-btn").on("click", (event) => {
     event.preventDefault();
-    const burgerToTrash = event.target.getAttribute("data-burger-name");
+    const burgerToTrash = event.target.getAttribute("data-burger-id");
 
     $.ajax("/api/burgers/" + burgerToTrash, {
       type: "DELETE",
