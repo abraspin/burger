@@ -9,7 +9,6 @@ const burger = require("../models/burger.js");
 
 //GET ALL BURGERS
 router.get("/", (req, res) => {
-  console.log("I'm about to try burger.selectAll!");
   burger.selectAll((data) => {
     const viewData = {
       burgers: data,

@@ -103,7 +103,6 @@ const orm = {
         throw err;
       }
 
-      console.log("Burger deleted from database!");
       cb(result);
     });
   },

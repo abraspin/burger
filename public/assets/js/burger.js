@@ -22,7 +22,7 @@ $(document).ready(function () {
       data: newBurger,
     }).then(() => {
       //log to console success message
-      console.log("User added a new burger");
+      console.log("---\nUser added a new burger\n-----");
       //reload the page to display the new burger in the appropriate card - Ready to Eat/Devoured
       location.reload();
     });
@@ -53,9 +53,8 @@ $(document).ready(function () {
       type: "DELETE",
     }).then(() => {
       //log to console success message
-      console.log("---\nUser deleted burger", burgerToTrash);
+      console.log("---\nUser deleted burger\n-----", burgerToTrash);
       //reload the page to display the new burger in the appropriate card - Ready to Eat/Devoured
-      console.log("--------------I'm about to reload the page--------------");
       location.reload();
     });
   });

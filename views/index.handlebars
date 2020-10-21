@@ -17,8 +17,7 @@
 <div class="container">
     <div class="row ">
 
-        <!-- <div id="burgers-to-devour" class="col-md-5 border"> -->
-        <div id="burgers-to-devour" class="col-md-6 p-1">
+        <section id="burgers-to-devour" class="col-md-6 p-1">
 
             <h2 class="text-center font-italic font-weight-bold mt-1">Burgers to be Devoured</h2>
             <ul class="list-group" style="list-style: none">
@@ -29,15 +28,12 @@
                 {{/unless}}
                 {{/each}}
             </ul>
-        </div>
+        </section>
 
-        <!-- <div class="col-md-2 "></div> -->
-        <!-- <div id="devoured-burgers" class="col-md-5 border"> -->
 
         <hr class=" d-md-none">
 
-        {{!-- //FIXME: rename el to section --}}
-        <div id="devoured-burgers" class="col-md-6 p-1">
+        <section id="devoured-burgers" class="col-md-6 p-1">
             <h2 class="text-center font-italic font-weight-bold mt-1 ">Devoured Burgers</h2>
 
             <ul class="list-group" style="list-style: none">
@@ -47,7 +43,7 @@
                 {{/if}}
                 {{/each}}
             </ul>
-        </div>
+        </section>
     </div>
 
     <br>
@@ -60,7 +56,6 @@
         <br>
         <div class="row">
             <form class=" mx-auto create-form">
-                {{!-- TODO: why is the button and the field slightly askew? --}}
                 <div class="form-group d-flex justify-content-center">
 
                     <input style="height:3.5rem" type="text" id="add-burger-field" name="burger_name"
