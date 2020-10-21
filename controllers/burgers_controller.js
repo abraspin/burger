@@ -14,7 +14,6 @@ router.get("/", (req, res) => {
     const viewData = {
       burgers: data,
     };
-    // console.log("router.get view data ------------.", viewData);
     res.render("index", viewData);
   });
 });
@@ -27,10 +26,7 @@ router.post("/api/burgers", (req, res) => {
 });
 
 router.put("/api/burgers/:id", (request, response) => {
-  // const condition = `burger_name = "${request.params.id}" `; // => burger_name = " dfabshfhbasrf "
-  const condition = `id = "${request.params.id}" `; // => id = " dfabshfhbasrf "
-
-  console.log("condition", condition);
+  const condition = `id = "${request.params.id}" `;
 
   burger.updateOne({ devoured: request.body.devoured }, condition, (result) => {
     if (result.changedRows == 0) {

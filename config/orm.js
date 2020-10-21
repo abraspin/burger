@@ -4,8 +4,6 @@ const connection = require("./connection.js");
 
 // The ?? signs are for swapping out table or column names
 // The ? signs are for swapping out other values
-// These help avoid SQL injection
-// https://en.wikipedia.org/wiki/SQL_injection
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -53,8 +51,6 @@ const orm = {
       if (err) {
         throw err;
       }
-      // console.log(`Compiled SQL: ${query.sql}`);
-      // console.log(result);
       cb(result);
     });
   },
@@ -69,8 +65,6 @@ const orm = {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
-
-    console.log("Insert One query string:", queryString);
 
     connection.query(queryString, vals, (err, result) => {
       if (err) {
@@ -92,7 +86,6 @@ const orm = {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log("update one query string:", queryString);
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
