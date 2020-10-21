@@ -19,11 +19,9 @@ router.get("/", (req, res) => {
   });
 });
 
-//TODO: What's happening here with the url change? how does the button make the url?
 router.post("/api/burgers", (req, res) => {
-  burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], (result) => {
-    // Send back the ID of the new quote
-    //TODO: what's this?
+  burger.insertOne(["burger_name"], [req.body.burger_name], (result) => {
+    // Send back the ID of the new burger
     res.json({ id: result.insertId });
   });
 });
