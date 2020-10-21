@@ -29,7 +29,7 @@ router.post("/api/burgers", (req, res) => {
 });
 
 router.put("/api/burgers/:id", (request, response) => {
-  const condition = `burger_name = '${request.params.id}' `;
+  const condition = `burger_name = "${request.params.id}" `;
 
   console.log("condition", condition);
 
